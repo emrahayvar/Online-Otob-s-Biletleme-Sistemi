@@ -1,0 +1,20 @@
+﻿@model MvcOtobusBiletleme.Models.Siniflar.MasrafTipleri
+@{
+    ViewBag.Title = "MasrafTipleriGetir";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+<h2>Masraf Tipi Güncelleme Sayfası</h2>
+<br />
+@using (Html.BeginForm("MasrafTipleriGuncelle", "MasrafTipleri", FormMethod.Post))
+{
+    @Html.HiddenFor(x => x.ID)
+    @Html.LabelFor(x => x.MasrafAd)
+    @Html.TextBoxFor(x => x.MasrafAd, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Durum)
+    @Html.TextBoxFor(x => x.Durum, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-warning">Güncelle</button>
+}

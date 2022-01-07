@@ -1,0 +1,55 @@
+﻿@using MvcOtobusBiletleme.Models.Siniflar;
+@model List<Biletler>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+<table id="tbl1" class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Sefer</th>
+            <th>Yolcu</th>
+            <th>Cinsiyet</th>
+            <th>Yolcu Id</th>
+            <th>Koltuk Numarası</th>
+            <th>Kalkış Zamanı</th>
+            <th>Satış/Rezarvasyon</th>
+            <th>Ücret</th>
+            <th>İşlem Zamanı</th>
+            <th>Personel Ad Soyad</th>
+            <th>GÜNCELLE</th>
+
+        </tr>
+    </thead>
+    @foreach (var u in Model)
+    {
+        <tr>
+            <td>@u.Seferler.SeferAd</td>
+            <td>@u.YolcuAd @u.YolcuSoyad</td>
+            <td>@u.YolcuCinsiyet</td>
+            <td>@u.Musteriler.ID</td>
+            <td>@u.KoltukNo</td>
+            <td>@u.KalkisZamani</td>
+            <td>@u.SatisMiRezarvasyonMu</td>
+            <td>@u.Ucret</td>
+            <td>@u.IslemZaman</td>
+            <td>@u.Calisanlar.Ad @u.Calisanlar.Soyad</td>
+            <td>
+                <a href="/Biletler/BiletlerGetir/@u.Biletlerid" class="btn btn-success">Güncelle</a>
+            </td>
+        </tr>
+    }
+</table>
+<a href="/Biletler/YeniBiletler/" class="btn btn-info">Yeni Bilet Sat</a> <td>~</td>
+<a href="/DoluKoltuk/Index/" class="btn btn-info">Dolu Koltuklar</a>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>
+<script>
+    $('#tbl1').dataTable({});
+</script>

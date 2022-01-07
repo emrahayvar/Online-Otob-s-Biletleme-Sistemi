@@ -1,0 +1,29 @@
+﻿@using MvcOtobusBiletleme.Models.Siniflar
+@model List<PersonelGirisCikis>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>Personel</th>
+        <th>Giriş Zamanı</th>
+        <th>Çıkış Zamanı</th>
+        <th>GÜNCELLE</th>
+    </tr>
+    @foreach (var p in Model)
+    {
+        <tr>
+            <td>@p.Calisanlar.Ad @p.Calisanlar.Soyad</td>
+            <td>@p.Giris</td>
+            <td>@p.Cikis</td>
+
+            <td>
+                <a href="/PersonelGirisCikis/PersonelGirisCikisGetir/@p.ID" class="btn btn-success">Güncelle</a>
+            </td>
+        </tr>
+    }
+</table>
+<a href="/PersonelGirisCikis/YeniPersonelGirisCikis/" class="btn btn-info">Personel Çalışma Saati Ekle</a>

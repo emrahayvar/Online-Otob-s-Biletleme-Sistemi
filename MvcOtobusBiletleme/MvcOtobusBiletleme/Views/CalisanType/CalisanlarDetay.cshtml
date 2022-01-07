@@ -1,0 +1,47 @@
+﻿@using MvcOtobusBiletleme.Models.Siniflar
+@model List<Calisanlar>
+@{
+    ViewBag.Title = "CalisanlarDetay";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+<h2>Personel Detay</h2>
+<br />
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Personel Tipi: @ViewBag.p</li>
+</ol>
+
+<table class="table table-hover">
+    <tr>
+        <th>Personel</th>
+        <th>Telefon</th>
+        <th>Email</th>
+        <th>Adres</th>
+        <th>Kullanıcı Adı</th>
+        <th>Şifre</th>
+        <th>Personel Tipi</th>
+        <th>Şube Adı</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach (var u in Model)
+    {
+        <tr>
+            <td>@u.Ad @u.Soyad</td>
+            <td>@u.Telefon</td>
+            <td>@u.Email</td>
+            <td>@u.EvAdres</td>
+            <td>@u.KullaniciAd</td>
+            <td>@u.Sifre</td>
+            <td>@u.CalisanType.TipAd</td>
+            <td>@u.Subeler.SubeAd</td>
+            <td>
+                <a href="/Calisanlar/CalisanlarSil/@u.ID" class="btn btn-danger">Sil</a>
+            </td>
+            <td>
+                <a href="/Calisanlar/CalisanlarGetir/@u.ID" class="btn btn-success">Güncelle</a>
+            </td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,28 @@
+﻿@using MvcOtobusBiletleme.Models.Siniflar;
+@model List<KalkisSehir>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Kalkış Şehir Adı</th>
+            <th>SİL</th>
+            <th>GÜNCELLE</th>
+        </tr>
+    <thead>
+        @foreach (var k in Model)
+        {
+            <tr>
+                <td>@k.KalkisSehirAd</td>
+                <td><a href="/KalkisSehir/KalkisSehirSil/@k.ID" class="btn btn-danger">Sil</a></td>
+                <td><a href="/KalkisSehir/KalkisSehirGetir/@k.ID" class="btn btn-success">Güncelle</a></td>
+            </tr>
+        }
+</table>
+
+<a href="/KalkisSehir/YeniKalkisSehir" class="btn btn-primary">Yeni Kalkış Şehri</a>
+

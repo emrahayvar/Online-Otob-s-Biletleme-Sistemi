@@ -1,0 +1,24 @@
+﻿@model MvcOtobusBiletleme.Models.Siniflar.PersonelGirisCikis
+@{
+    ViewBag.Title = "PersonelGirisCikisGetir";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+<h2>Ürün Güncelleme Sayfası</h2>
+<br />
+
+@using (Html.BeginForm("PersonelGirisCikisGuncelle", "PersonelGirisCikis", FormMethod.Post))
+{
+    @Html.HiddenFor(x => x.ID)
+    @Html.Label("Personel Adı")
+    @Html.DropDownListFor(x => x.Calisanlarid, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
+    <br />
+    @Html.Label("Giriş Saati")
+    @Html.TextBoxFor(x => x.Giris, new { @class = "form-control" })
+    <br />
+    @Html.Label("Çıkış Saati")
+    @Html.TextBoxFor(x => x.Cikis, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-warning">Güncelle</button>
+}

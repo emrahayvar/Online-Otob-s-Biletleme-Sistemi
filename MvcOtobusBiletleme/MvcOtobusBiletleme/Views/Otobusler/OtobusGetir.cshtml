@@ -1,0 +1,26 @@
+﻿@model MvcOtobusBiletleme.Models.Siniflar.Otobusler
+@{
+    ViewBag.Title = "OtobusGetir";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+<h2>Otobüs Güncelleme Sayfası</h2>
+<br />
+@using (Html.BeginForm("OtobuslerGuncelle", "Otobusler", FormMethod.Post))
+{
+    @Html.HiddenFor(x => x.ID)
+    @Html.LabelFor(x => x.Plaka)
+    @Html.TextBoxFor(x => x.Plaka, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.KoltukSayisi)
+    @Html.TextBoxFor(x => x.KoltukSayisi, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Markalar.ID)
+    @Html.DropDownListFor(x => x.Markalarid, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.AktifMi)
+    @Html.TextBoxFor(x => x.AktifMi, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-warning">Güncelle</button>
+}

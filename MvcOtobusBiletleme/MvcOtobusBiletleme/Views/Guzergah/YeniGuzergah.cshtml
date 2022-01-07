@@ -1,0 +1,26 @@
+﻿@model MvcOtobusBiletleme.Models.Siniflar.Guzergah
+@{
+    ViewBag.Title = "YeniGuzergah";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+
+<br />
+<h2>Yeni Guzergah</h2>
+<br />
+<form class="form-group" method="post">
+    @Html.Label("Nereden")
+    @Html.DropDownListFor(x => x.KalkisSehirid, (List<SelectListItem>)ViewBag.yeniGzg, new { @class = "form-control" })
+    <br />
+    @Html.Label("Nereye")
+    @Html.DropDownListFor(x => x.VarisSehirid, (List<SelectListItem>)ViewBag.yeniGzgh, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Tanim)
+    @Html.TextBoxFor(x => x.Tanim, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Durum)
+    @Html.TextBoxFor(x => x.Durum, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-primary">Kaydet</button>
+</form>
+

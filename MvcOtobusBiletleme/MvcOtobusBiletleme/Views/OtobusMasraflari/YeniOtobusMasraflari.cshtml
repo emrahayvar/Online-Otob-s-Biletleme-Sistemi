@@ -1,0 +1,28 @@
+﻿@model MvcOtobusBiletleme.Models.Siniflar.OtobusMasraflari
+@{
+    ViewBag.Title = "YeniOtobusMasraflari";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+<h2>Yeni Otobüs Masrafı</h2>
+<br />
+<form class="form-group" method="post">
+    @Html.Label("Sefer Adı")
+    @Html.DropDownListFor(x => x.Seferlerid, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
+    <br />
+    @Html.Label("Otobüs Plakası")
+    @Html.DropDownListFor(x => x.Otobuslerid, (List<SelectListItem>)ViewBag.dgr2, new { @class = "form-control" })
+    <br />
+    @Html.Label("Çalışan Adı (Şoför)")
+    @Html.DropDownListFor(x => x.Calisanlarid, (List<SelectListItem>)ViewBag.dgr3, new { @class = "form-control" })
+    <br />
+    @Html.Label("Masraf Tipi")
+    @Html.DropDownListFor(x => x.MasrafTipleriid, (List<SelectListItem>)ViewBag.dgr4, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Tutar)
+    @Html.TextBoxFor(x => x.Tutar, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-primary">Kaydet</button>
+
+</form>

@@ -1,0 +1,32 @@
+﻿@using MvcOtobusBiletleme.Models.Siniflar;
+@model List<CalisanType>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Tip Adı</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+        <th>Detaylar</th>
+
+    </tr>
+    @foreach (var c in Model)
+    {
+        <tr>
+            <td>@c.ID</td>
+            <td>@c.TipAd</td>
+            <td>
+                <a href="/CalisanType/CalisanTypeSil/@c.ID" class="btn btn-danger">Sil</a>
+            </td>
+            <td><a href="/CalisanType/CalisanTypeGetir/@c.ID" class="btn btn-success">Güncelle</a></td>
+            <td><a href="/CalisanType/CalisanlarDetay/@c.ID" class="btn btn-default" style="background-color:lightcoral;color:white;">Detaylar</a></td>
+        </tr>
+    }
+</table>
+<a href="/CalisanType/YeniCalisanType/" class="btn btn-info">Yeni Tip Ekle</a>

@@ -1,0 +1,51 @@
+﻿@using MvcOtobusBiletleme.Models.Siniflar
+@model List<Musteriler>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+
+<table id="tbl1" class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Müşteri</th>
+            <th>Telefon</th>
+            <th>Cinsiyet</th>
+            <th>Doğum Tarihi</th>
+            <th>Şehir Adı</th>
+            <th>GÜNCELLE</th>
+
+        </tr>
+    </thead>
+    @foreach (var m in Model)
+    {
+        <tr>
+            <td>@m.ID</td>
+            <td>@m.Ad @m.Soyad</td>
+            <td>@m.Telefon</td>
+            <td>@m.Cinsiyet</td>
+            <td>@m.DogumTarih</td>
+            <td>@m.Sehirler.SehirAd</td>
+            <td>
+                <a href="/Musteriler/MusterilerGetir/@m.ID" class="btn btn-success">Güncelle</a>
+            </td>
+        </tr>
+    }
+</table>
+
+<a href="/Musteriler/YeniMusteriler/" class="btn btn-info">Yeni Müşteri Ekle</a> <td>~</td>
+<a href="/Sehirler/Index/" class="btn btn-info">Yeni Şehir Ekle</a> <td>~</td>
+<a href="/Musteriler/MusteriListesi/" class="btn btn-info">Pdf & Excel Olarak Al</a>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>
+<script>
+    $('#tbl1').dataTable({});
+</script>

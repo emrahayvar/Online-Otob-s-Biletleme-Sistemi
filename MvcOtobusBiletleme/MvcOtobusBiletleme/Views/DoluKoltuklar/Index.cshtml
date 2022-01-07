@@ -1,0 +1,96 @@
+﻿@using MvcOtobusBiletleme.Models.Siniflar;
+@model List<DoluKoltuklar>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<style type="text/css">
+    .longSubmitButton {
+        width: 45px;
+        height: 45px;
+    }
+</style>
+<br />
+<form>
+    <input type="submit" name="submit" id="submit" class="longSubmitButton" asp-action="check" value="3" /> &nbsp;
+    <input type="submit" name="submit" id="submit" class="longSubmitButton" value="6" /> &nbsp;
+    <input type="submit" name="submit" id="submit" class="longSubmitButton" value="9" /> &nbsp;
+    <input type="submit" name="submit" id="submit" class="longSubmitButton" value="12" /> &nbsp;
+    <input type="submit" name="submit" id="submit" class="longSubmitButton" value="15" /> &nbsp;
+    <input type="submit" name="submit" id="submit" class="longSubmitButton" value="18" /> &nbsp;
+    <input type="submit" name="submit" id="submit" class="longSubmitButton" value="21" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+    <input type="submit" name="submit" id="submit" class="longSubmitButton" value="24" /> &nbsp;
+    <input type="submit" name="submit" id="submit" class="longSubmitButton" value="27" /> &nbsp;
+    <input type="submit" name="submit" id="submit" class="longSubmitButton" value="30" /> &nbsp;
+    <input type="submit" name="submit" id="submit" class="longSubmitButton" value="33" /> &nbsp;
+    <input type="submit" name="submit" id="submit" class="longSubmitButton" value="36" /> &nbsp;
+    <br />
+    <br />
+    <input type="submit" name="submit" id="submit" class="longSubmitButton" value="2" /> &nbsp;
+    <input type="submit" name="submit" id="submit" class="longSubmitButton" value="5" /> &nbsp;
+    <input type="submit" name="submit" id="submit" class="longSubmitButton" value="8" /> &nbsp;
+    <input type="submit" name="submit" id="submit" class="longSubmitButton" value="11" /> &nbsp;
+    <input type="submit" name="submit" id="submit" class="longSubmitButton" value="14" /> &nbsp;
+    <input type="submit" name="submit" id="submit" class="longSubmitButton" value="17" /> &nbsp;
+    <input type="submit" name="submit" id="submit" class="longSubmitButton" value="20" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+    <input type="submit" name="submit" id="submit" class="longSubmitButton" value="23" /> &nbsp;
+    <input type="submit" name="submit" id="submit" class="longSubmitButton" value="26" /> &nbsp;
+    <input type="submit" name="submit" id="submit" class="longSubmitButton" value="29" /> &nbsp;
+    <input type="submit" name="submit" id="submit" class="longSubmitButton" value="32" /> &nbsp;
+    <input type="submit" name="submit" id="submit" class="longSubmitButton" value="35" /> &nbsp;
+    <br />
+    <br />
+    <br />
+    <input type="submit" name="submit" id="submit" class="longSubmitButton" value="1" /> &nbsp;
+    <input type="submit" name="submit" id="submit" class="longSubmitButton" value="4" /> &nbsp;
+    <input type="submit" name="submit" id="submit" class="longSubmitButton" value="7" /> &nbsp;
+    <input type="submit" name="submit" id="submit" class="longSubmitButton" value="10" /> &nbsp;
+    <input type="submit" name="submit" id="submit" class="longSubmitButton" value="13" /> &nbsp;
+    <input type="submit" name="submit" id="submit" class="longSubmitButton" value="16" /> &nbsp;
+    <input type="submit" name="submit" id="submit" class="longSubmitButton" value="19" /> &nbsp;
+    <input type="submit" name="submit" id="submit" class="longSubmitButton" value="22" /> &nbsp;
+    <input type="submit" name="submit" id="submit" class="longSubmitButton" value="25" /> &nbsp;
+    <input type="submit" name="submit" id="submit" class="longSubmitButton" value="28" /> &nbsp;
+    <input type="submit" name="submit" id="submit" class="longSubmitButton" value="31" /> &nbsp;
+    <input type="submit" name="submit" id="submit" class="longSubmitButton" value="34" /> &nbsp;
+    <input type="submit" name="submit" id="submit" class="longSubmitButton" value="37" /> &nbsp;
+
+
+</form>
+<br />
+<table id="tbl1" class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Sefer </th>
+            <th>Kalkış Zamanı</th>
+            <th>Bilet No</th>
+            <th>Kalkış Şehir</th>
+            <th>Güncelle</th>
+
+        </tr>
+    </thead>
+    @foreach (var d in Model)
+    {
+        <tr>
+            <td>@d.Seferler.SeferAd</td>
+            <td>@d.KalkisZamani</td>
+            <td>@d.BiletNo</td>
+            <td>@d.KalkisSehir.KalkisSehirAd</td>
+            <td>
+                <a href="/DoluKoltuklar/DoluKoltuklarGetir/@d.KoltukID" class="btn btn-success">Güncelle</a>
+            </td>
+        </tr>
+    }
+</table>
+
+<a href="/DoluKoltuklar/YeniDoluKoltuklar/" class="btn btn-info">Yeni Dolu Koltuk Ekle</a>
+
+@*<link href="~/Content/bootstrap.css" rel="stylesheet" />*@
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>
+<script>
+    $('#tbl1').dataTable({});
+</script>

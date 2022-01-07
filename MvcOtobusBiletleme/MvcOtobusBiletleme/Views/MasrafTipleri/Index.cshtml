@@ -1,0 +1,29 @@
+﻿@using MvcOtobusBiletleme.Models.Siniflar;
+@model List<MasrafTipleri>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>Masraf Ad</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+
+    </tr>
+    @foreach (var u in Model)
+    {
+        <tr>
+            <td>@u.MasrafAd</td>
+            <td>
+                <a href="/MasrafTipleri/MasrafTipleriSil/@u.ID" class="btn btn-danger">Sil</a>
+            </td>
+            <td>
+                <a href="/MasrafTipleri/MasrafTipleriGetir/@u.ID" class="btn btn-success">Güncelle</a>
+            </td>
+        </tr>
+    }
+</table>
+<a href="/MasrafTipleri/YeniMasrafTipleri/" class="btn btn-info">Yeni Masraf Tipi</a>

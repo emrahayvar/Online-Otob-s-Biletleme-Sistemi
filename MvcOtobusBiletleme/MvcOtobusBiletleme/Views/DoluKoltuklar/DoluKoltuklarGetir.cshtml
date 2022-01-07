@@ -1,0 +1,27 @@
+﻿@model MvcOtobusBiletleme.Models.Siniflar.DoluKoltuklar
+@{
+    ViewBag.Title = "DoluKoltuklarGetir";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+<h2>Dolu Koltukları Güncelleme Sayfası</h2>
+<br />
+
+@using (Html.BeginForm("DoluKoltuklarGuncelle", "DoluKoltuklar", FormMethod.Post))
+{
+    @Html.HiddenFor(x => x.KoltukID)
+    @Html.Label("Sefer")
+    @Html.DropDownListFor(x => x.Seferlerid, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
+    <br />
+    @Html.Label("Kalkış Zamanı")
+    @Html.TextBoxFor(x => x.KalkisZamani, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.BiletNo)
+    @Html.TextBoxFor(x => x.BiletNo, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.KalkisSehir.ID)
+    @Html.DropDownListFor(x => x.KalkisSehirid, (List<SelectListItem>)ViewBag.dgr2, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-warning">Güncelle</button>
+}

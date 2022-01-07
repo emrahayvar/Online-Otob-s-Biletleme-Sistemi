@@ -1,0 +1,22 @@
+﻿@model MvcOtobusBiletleme.Models.Siniflar.PersonelGirisCikis
+@{
+    ViewBag.Title = "YeniPersonelGirisCikis";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>YeniPersonelGirisCikis</h2>
+
+<form class="form-group" method="post">
+    @Html.Label("Personel Adı")
+    @Html.DropDownListFor(x => x.Calisanlarid, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
+    <br />
+    @Html.Label("Giriş Saati")
+    @Html.TextBoxFor(x => x.Giris, new { @class = "form-control" })
+    <br />
+    @Html.Label("Çıkış Saati")
+    @Html.TextBoxFor(x => x.Cikis, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-primary">Kaydet</button>
+
+</form>
+

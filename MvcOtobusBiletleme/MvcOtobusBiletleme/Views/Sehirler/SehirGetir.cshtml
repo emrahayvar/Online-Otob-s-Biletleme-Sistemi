@@ -1,0 +1,22 @@
+﻿@model MvcOtobusBiletleme.Models.Siniflar.Sehirler
+@{
+    ViewBag.Title = "SehirGetir";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<br />
+<h2>Şehir Güncelleme</h2>
+<br />
+@using (Html.BeginForm("SehirGuncelle", "Sehirler", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(x => x.SehirAd)
+        @Html.TextBoxFor(x => x.SehirAd, new { @class = "form-control" })
+        @Html.HiddenFor(x => x.ID)
+        <br />
+        @Html.TextBoxFor(x => x.SehirAd, new { @class = "form-control" })
+        @Html.HiddenFor(x => x.ID)
+        <br />
+    </div>
+
+    <button class="btn btn-warning">Güncelle</button>
+}

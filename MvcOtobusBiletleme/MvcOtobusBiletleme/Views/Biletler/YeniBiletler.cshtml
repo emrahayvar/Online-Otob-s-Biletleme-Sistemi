@@ -1,0 +1,47 @@
+﻿@model MvcOtobusBiletleme.Models.Siniflar.Biletler
+@{
+    ViewBag.Title = "YeniBiletler";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+<h2>Yeni Bilet Sayfası</h2>
+<br />
+<form class="form-group" method="post">
+    @Html.Label("Sefer")
+    @Html.DropDownListFor(x => x.Seferlerid, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
+    <br />
+    @Html.Label("Yolcu Ad")
+    @Html.TextBoxFor(x => x.YolcuAd, new { @class = "form-control" })
+    <br />
+    @Html.Label("Yolcu Soyad")
+    @Html.TextBoxFor(x => x.YolcuSoyad, new { @class = "form-control" })
+    <br />
+    @Html.Label("Cinsiyet")
+    @Html.TextBoxFor(x => x.YolcuCinsiyet, new { @class = "form-control" })
+    <br />
+    @Html.Label("Yolcu Id")
+    @Html.TextBoxFor(x => x.Musterilerid, new { @class = "form-control" })
+    <br />
+    @Html.Label("Koltuk No")
+    @Html.TextBoxFor(x => x.KoltukNo, new { @class = "form-control" })
+    <br />
+    @Html.Label("Kalkış Zamanı")
+    @Html.TextBoxFor(x => x.KalkisZamani, new { @class = "form-control" })
+    <br />
+    @Html.Label("Satış/Rezarvasyon")
+    @Html.TextBoxFor(x => x.SatisMiRezarvasyonMu, new { @class = "form-control" })
+    <br />
+    @Html.Label("Ücret")
+    @Html.TextBoxFor(x => x.Ucret, new { @class = "form-control" })
+    <br />
+    @Html.Label("İşlem Zamanı")
+    @Html.TextBoxFor(x => x.IslemZaman, new { @class = "form-control" })
+    <br />
+    @Html.Label("Personel Ad Soyad")
+    @Html.DropDownListFor(x => x.Calisanlarid, (List<SelectListItem>)ViewBag.dgr3, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-primary">Kaydet</button>
+
+</form>
+

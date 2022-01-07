@@ -1,0 +1,26 @@
+﻿@model MvcOtobusBiletleme.Models.Siniflar.DoluKoltuklar
+@{
+    ViewBag.Title = "YeniDoluKoltuklar";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+<h2>Yeni Ürün Sayfası</h2>
+<br />
+<form class="form-group" method="post">
+    @Html.LabelFor(x => x.BiletNo)
+    @Html.TextBoxFor(x => x.BiletNo, new { @class = "form-control" })
+    <br />
+    @Html.Label("Kalkış Zamanı")
+    @Html.TextBoxFor(x => x.KalkisZamani, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Seferler.SeferAd)
+    @Html.DropDownListFor(x => x.Seferlerid, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.KalkisSehir.KalkisSehirAd)
+    @Html.DropDownListFor(x => x.KalkisSehirid, (List<SelectListItem>)ViewBag.dgr2, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-primary">Kaydet</button>
+
+</form>
+

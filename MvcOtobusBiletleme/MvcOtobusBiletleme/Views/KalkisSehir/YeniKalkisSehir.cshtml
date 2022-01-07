@@ -1,0 +1,17 @@
+﻿@model MvcOtobusBiletleme.Models.Siniflar.KalkisSehir
+@{
+    ViewBag.Title = "YeniKalkisSehir";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<br />
+<h2>Yeni Kalkış Yapılacak Sehir</h2>
+<br />
+<form class="form-group" method="post">
+    @Html.Label("Kalkış Şehir")
+    @Html.TextBoxFor(x => x.KalkisSehirAd, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Durum)
+    @Html.TextBoxFor(x => x.Durum, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-primary">Kaydet</button>
+</form>

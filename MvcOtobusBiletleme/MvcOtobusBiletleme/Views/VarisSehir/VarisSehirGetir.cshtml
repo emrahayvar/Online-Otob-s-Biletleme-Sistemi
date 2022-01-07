@@ -1,0 +1,20 @@
+﻿@model MvcOtobusBiletleme.Models.Siniflar.VarisSehir
+@{
+    ViewBag.Title = "VarisSehirGetir";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<br />
+<h2>Gidilecek Olan Şehri Güncelleme Sayfası</h2>
+<br />
+
+@using (Html.BeginForm("VarisSehirGuncelle", "VarisSehir", FormMethod.Post))
+{
+    @Html.Label("Gidilen Şehir")
+    @Html.TextBoxFor(x => x.VarisSehirAd, new { @class = "form-control" })
+    @Html.HiddenFor(x => x.ID)
+    <br />
+    @Html.LabelFor(x => x.Durum)
+    @Html.TextBoxFor(x => x.Durum, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-warning">Güncelle</button>
+}

@@ -1,0 +1,25 @@
+﻿@model MvcOtobusBiletleme.Models.Siniflar.Otobusler
+@{
+    ViewBag.Title = "YeniOtobusler";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+<h2>Yeni Otobüs Ekleme Sayfası</h2>
+<br />
+<form class="form-group" method="post">
+    @Html.Label("Plaka")
+    @Html.TextBoxFor(x => x.Plaka, new { @class = "form-control" })
+    <br />
+    @Html.Label("Koltuk Sayısı")
+    @Html.TextBoxFor(x => x.KoltukSayisi, new { @class = "form-control" })
+    <br />
+    @Html.Label("Markası")
+    @Html.DropDownListFor(x => x.Markalarid, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
+    <br />
+    @Html.Label("Aktif Mi?")
+    @Html.TextBoxFor(x => x.AktifMi, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-primary">Kaydet</button>
+
+</form>

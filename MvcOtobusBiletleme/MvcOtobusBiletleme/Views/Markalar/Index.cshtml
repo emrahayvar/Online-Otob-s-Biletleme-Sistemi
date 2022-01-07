@@ -1,0 +1,29 @@
+﻿@using MvcOtobusBiletleme.Models.Siniflar;
+@model List<Markalar>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<br />
+
+<table class="table table-bordered">
+    <tr>
+        <th>Marka</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.MarkaAd</td>
+            <td>
+                <a href="/Markalar/MarkalarSil/@x.ID" class="btn btn-danger">Sil</a>
+            </td>
+            <td>
+                <a href="/Markalar/MarkalarGetir/@x.ID" class="btn btn-success">Güncelle</a>
+            </td>
+        </tr>
+    }
+</table>
+<a href="/Markalar/YeniMarkalar/" class="btn btn-info">Yeni Marka</a>

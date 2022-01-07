@@ -1,0 +1,30 @@
+﻿@using MvcOtobusBiletleme.Models.Siniflar;
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<Sehirler>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<table class="table table-bordered" style="margin-top:20px;">
+    <tr>
+        <th>Şehrin Adı</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach (var s in Model)
+    {
+        <tr>
+            <td>@s.SehirAd</td>
+            <td><a href="/Sehirler/SehirSil/@s.ID" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Sehirler/SehirGetir/@s.ID" class="btn btn-success">Güncelle</a></td>
+        </tr>
+    }
+</table>
+@Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Index", new { sayfa }), new PagedListRenderOptions
+{
+    LiElementClasses = new List<string>
+    {"page-link"}
+})
+<a href="/Sehirler/SehirEkle" class="btn btn-primary">Şehir Ekle</a>

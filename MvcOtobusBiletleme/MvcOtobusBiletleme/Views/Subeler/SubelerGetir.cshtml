@@ -1,0 +1,24 @@
+﻿@model MvcOtobusBiletleme.Models.Siniflar.Subeler
+@{
+    ViewBag.Title = "SubelerGetir";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+<h2>Şube Güncelleme Sayfası</h2>
+<br />
+
+@using (Html.BeginForm("SubelerGuncelle", "Subeler", FormMethod.Post))
+{
+    @Html.HiddenFor(x => x.ID)
+    @Html.LabelFor(x => x.SubeAd)
+    @Html.TextBoxFor(x => x.SubeAd, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Sehirler.ID)
+    @Html.DropDownListFor(x => x.Sehirlerid, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Durum)
+    @Html.TextBoxFor(x => x.Durum, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-warning">Güncelle</button>
+}

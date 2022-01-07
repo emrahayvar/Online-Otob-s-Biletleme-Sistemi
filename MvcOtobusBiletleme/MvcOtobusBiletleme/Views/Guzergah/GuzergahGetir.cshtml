@@ -1,0 +1,27 @@
+﻿@model MvcOtobusBiletleme.Models.Siniflar.Guzergah
+@{
+    ViewBag.Title = "GuzergahGetir";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+<h2>Guzergah Guncelleme Sayfası</h2>
+<br />
+
+@using (Html.BeginForm("GuzergahGuncelle", "Guzergah", FormMethod.Post))
+{
+    @Html.HiddenFor(x => x.ID)
+    @Html.Label("Nereden")
+    @Html.DropDownListFor(x => x.KalkisSehirid, (List<SelectListItem>)ViewBag.yeniGzg, new { @class = "form-control" })
+    <br />
+    @Html.Label("Nereye")
+    @Html.DropDownListFor(x => x.VarisSehirid, (List<SelectListItem>)ViewBag.yeniGzgh, new { @class = "form-control" })
+    <br />
+    @Html.Label("Tanım")
+    @Html.TextBoxFor(x => x.Tanim, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Durum)
+    @Html.TextBoxFor(x => x.Durum, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-warning">Güncelle</button>
+}
